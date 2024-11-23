@@ -2,7 +2,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 
-export default function page() {
+export default function SignupPage() {
     const {
         register,
         handleSubmit,
