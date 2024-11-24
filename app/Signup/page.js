@@ -1,6 +1,8 @@
 "use client";
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import Link from 'next/link'
+import { useLoading } from "../Contexts/loading";
 
 export default function SignupPage() {
     const {
@@ -12,6 +14,12 @@ export default function SignupPage() {
       const onSubmit = (data) => {
         console.log(data);
       }
+      const { startLoading, stopLoading } = useLoading();
+      const handleFetch = async () => {
+        startLoading();
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        stopLoading();
+      };
   return (
     <div className="h-screen text-black bg-white pt-[70px] xs:pt-[100px]">
         <form onSubmit={handleSubmit(onSubmit)} className="w-[90%] sm:w-[456px] h-[500px] xs:h-[524px] border border[#B9BEC7] rounded-[12px] m-auto p-[30px]" >
@@ -73,7 +81,7 @@ export default function SignupPage() {
         </div>
 
         <button type="submit" className="bg-[#0059DE] w-[200px] xs:w-full h-[35px] sm:h-[45px] rounded-[8px] mt-[25px] text-white">Sign Up</button>
-        <div className="text-center"><p className="text-[11px] mt-[20px]">Already have an account? <span className="text-[#0059DE]">Log in</span> </p></div>
+        <div className="text-center"><p className="text-[11px] mt-[20px]">Already have an account? <Link href="/Login" onClick={handleFetch}><span className="text-[#0059DE]">Log in</span></Link> </p></div>
       </form>
     </div>
   )

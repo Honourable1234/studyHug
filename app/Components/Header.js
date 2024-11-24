@@ -22,11 +22,11 @@ export default function Header() {
            alt="Study Hug Logo"
            width={90}
            height={40} 
-           className="w-[50px] xs:w-[90px] lg:w-[120px] "
+           className="w-[50px] xs:w-[90px] lg:w-[120px] mt-[10px] "
       />
        </Link>
       <div className="w-[281px] h-[47px] bg-[#F7F9FC] rounded-[40px] hidden sm:flex text-black text-[16px] justify-between items-center px-[15px]">
-        <button>Home</button>
+        <Link href="/" onClick={handleFetch}><button>Home</button></Link>
         <button>Features</button>
         <button className="flex">
           Help 
@@ -40,7 +40,9 @@ export default function Header() {
         </button>
       </div>
       <div className="flex items-center">
-         <button className="hidden xs:block text-[#0066FF] w-[70px] h-[40px] text-[14px]" onClick={handleFetch}>Login</button>
+         <Link href="/Login">
+             <button className="hidden xs:block text-[#0066FF] w-[70px] h-[40px] text-[14px]" onClick={handleFetch}>Login</button>
+         </Link>
          <Link href="/Signup">
             <button className="bg-[#0066FF] w-[70px] xs:w-[117px] h-[25px] xs:h-[40px] rounded-[8px] text-[10px] xs:text-[14px]" onClick={handleFetch}>Get started</button>
          </Link>
