@@ -45,6 +45,7 @@ function LoginPage() {
         <div>
           <label htmlFor="password" className=" text-[9px] xs:text-[13px] text-[#10172C] text-inter">PASSWORD</label><br/>
           <input
+          type="password"
             id="password"
             {...register("password", {
               required: "Password is required",

@@ -1,23 +1,47 @@
 "use client";
-import React from 'react'
 import { useForm } from 'react-hook-form';
 import Link from 'next/link'
 import { useLoading } from "../Contexts/loading";
+import axios from 'axios';
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from 'react';
 
 export default function SignupPage() {
-    const {
+     const { startLoading, stopLoading } = useLoading();
+     const {setUserEmail} = useLoading();
+     const API = process.env.NEXT_PUBLIC_API_END_POINT_REGISTER
+     const router = useRouter();
+     const {
         register,
         handleSubmit,
         formState: { errors },
       } = useForm();
-    
-      const onSubmit = (data) => {
-        console.log(data);
-      }
-      const { startLoading, stopLoading } = useLoading();
-      const handleFetch = async () => {
+      const onSubmit = async(data) => {
         startLoading();
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        try {
+          const response = await axios.post(API, data)
+          setUserEmail(
+            response.data.data.user.email 
+          )
+          router.push('/Verify')
+          stopLoading();
+        } catch (error) {
+            if (error.response && error.response.status === 400) {
+            const errorMessage = error.response.data.message;
+            if (errorMessage === "User with this email already exists") {
+              alert("This email is already registered. Please use another email.");
+            } else {
+              alert(errorMessage);
+            }
+          } else {
+            alert("An unexpected error occurred. Please try again later.");
+          }
+          stopLoading();
+        }
+      }
+      const handleClick = async () => {
+        startLoading();
+        await new Promise((resolve) => setTimeout(resolve, 7000));
         stopLoading();
       };
   return (
@@ -66,6 +90,7 @@ export default function SignupPage() {
         <div>
           <label htmlFor="password" className=" text-[9px] xs:text-[13px] text-[#10172C] text-inter">PASSWORD</label><br/>
           <input
+            type="password"
             id="password"
             {...register("password", {
               required: "Password is required",
@@ -81,7 +106,7 @@ export default function SignupPage() {
         </div>
 
         <button type="submit" className="bg-[#0059DE] w-[200px] xs:w-full h-[35px] sm:h-[45px] rounded-[8px] mt-[25px] text-white">Sign Up</button>
-        <div className="text-center"><p className="text-[11px] mt-[20px]">Already have an account? <Link href="/Login" onClick={handleFetch}><span className="text-[#0059DE]">Log in</span></Link> </p></div>
+        <div className="text-center"><p className="text-[11px] mt-[20px]">Already have an account? <Link href="/Login" onClick={handleClick}><span className="text-[#0059DE]">Log in</span></Link> </p></div>
       </form>
     </div>
   )
