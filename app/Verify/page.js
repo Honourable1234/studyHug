@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useLoading } from "../Contexts/loading";
 import axios from 'axios';
 import { useRouter } from "next/navigation";
+
 export default function VerifyPage() {
     const [otp, setOtp] = useState('');
     const router = useRouter();
@@ -39,7 +40,7 @@ export default function VerifyPage() {
        },[userEmail])
   return (
     <div className="h-screen text-black bg-white pt-[30px] sm:pt-[70px] xs:pt-[100px]">
-      <div className="border border-[#B9BEC7] w-[300px] sm:w-[456px] text-rethink h-[412px] m-auto text-center py-[32px] px-[28px] rounded-[12px]">
+      <div className="border border-[#B9BEC7] w-[250px] sm:w-[456px] text-rethink h-[300px] sm:h-[412px] m-auto text-center py-[32px] px-[28px] rounded-[12px]">
         <h2 className="text-[18px] sm:text-[28px]">Enter the Code</h2>
         <p className="text-[10px] sm:text-[16px]">Enter the One-Time Password (OTP) sent to {userEmail} </p>
         <OtpInput numInputs={4} onChange={handleOtpChange}/>

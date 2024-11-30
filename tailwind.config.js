@@ -13,9 +13,11 @@ module.exports = {
       },
       screens: {
         'xs': '320px',
+        'rs': '420px',
       },
       fontFamily: {
         rethink: ['Rethink Sans', 'sans-serif'],
+        instrument: ['instrument serif', 'serif']
       },
 
     },

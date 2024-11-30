@@ -35,7 +35,7 @@ export default function OtpInput({ numInputs = 4, onChange }) {
                     onChange={(e) => handleChange(e, index)}
                     onKeyDown={(e) => handleKeyDown(e, index)}
                     maxLength={1}
-                    className='w-[40px] sm:w-[82.52px] h-[37px] sm:h-[76.7px] text-center text-[40px] border focus:outline-none  focus:ring-2 focus:ring-blue-500 rounded-[4.85px] mt-[25px] mx-[15px]'
+                    className='w-[40px] sm:w-[82.52px] h-[37px] sm:h-[76.7px] text-center text-[40px] border focus:outline-none  focus:ring-2 focus:ring-blue-500 rounded-[4.85px] mt-[25px] mx-[5px] sm:mx-[15px]'
                 />
             ))}
         </div>
