@@ -13,13 +13,18 @@ export default function page() {
         />
         <button className="hidden gap-[4px] text-black rs:flex items-center justify-center w-[84px] h-[36px] rounded-[8px] text-[14px] text-[#344054] border border-inherit">Filter <Image  src="/images/Filter.svg" alt="Filter Logo"width={15} height={15}/></button>
       </div>
-      <div className="rounded-b-[12px] min-h-[200px] border border-inherit pt-[20px] pb-[20px] flex flex-wrap max-w-[1010px]">
-          <Subject title="Mathematics"  content="Master algebra, geometry, and more to excel in your exams." imageUrl="/images/Maths.svg"/>
-          <Subject title="English"  content="Hone your grammar, vocabulary, and comprehension skills." imageUrl="/images/English.svg"/>
-          <Subject title="Physics"  content="Understand the fundamental principles of motion, force, and energy." imageUrl="/images/Physics.svg"/>
-          <Subject title="Biology"  content="Explore life processes, genetics, and the human body as a whole." imageUrl="/images/Biology.svg"/>
-          <Subject title="Biology"  content="Explore life processes, genetics, and the human body as a whole." imageUrl="/images/Biology.svg"/>
-          <Subject title="Biology"  content="Explore life processes, genetics, and the human body as a whole." imageUrl="/images/Biology.svg"/>
+      <div className="rounded-b-[12px] min-h-[200px] border border-inherit pt-[20px] pb-[20px] max-w-[1010px]">
+          <div className="flex flex-wrap">
+            <Subject title="Mathematics"  content="Master algebra, geometry, and more to excel in your exams." imageUrl="/images/Maths.svg"/>
+            <Subject title="English"  content="Hone your grammar, vocabulary, and comprehension skills." imageUrl="/images/English.svg"/>
+            <Subject title="Physics"  content="Understand the fundamental principles of motion, force, and energy." imageUrl="/images/Physics.svg"/>
+            <Subject title="Biology"  content="Explore life processes, genetics, and the human body as a whole." imageUrl="/images/Biology.svg"/>
+            <Subject title="Biology"  content="Explore life processes, genetics, and the human body as a whole." imageUrl="/images/Biology.svg"/>
+            <Subject title="Biology"  content="Explore life processes, genetics, and the human body as a whole." imageUrl="/images/Biology.svg"/>
+          </div>
+          <div className="justify-center h-[150px] items-center flex">
+            <button className="w-[150px] h-[36px] rounded-[8px] border border-[#C3D0EC] text-[#475367] text-[14px]">See More Subjects</button>
+          </div>
       </div>
     </div>
   )

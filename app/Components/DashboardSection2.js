@@ -5,13 +5,13 @@ import Image from 'next/image';
 export default function Section2() {
   return (
     <div className="bg-[#F7F9FC] pt-[15px] px-[10%] pb-[70px]">
-      <div className="sm:grid grid-cols-2 xl:flex">
+      <div className="hidden sm:grid grid-cols-2 xl:flex">
         <Subject title="Mathematics"  content="Master algebra, geometry, and more to excel in your exams." imageUrl="/images/Maths.svg"/>
         <Subject title="English"  content="Hone your grammar, vocabulary, and comprehension skills." imageUrl="/images/English.svg"/>
         <Subject title="Physics"  content="Understand the fundamental principles of motion, force, and energy." imageUrl="/images/Physics.svg"/>
         <Subject title="Biology"  content="Explore life processes, genetics, and the human body as a whole." imageUrl="/images/Biology.svg"/>
       </div>
-      <div className="mt-[20px] flex justify-between mt-[30px] sm:mt-[60px]">
+      <div className="mt-[20px] hidden sm:flex justify-between mt-[30px] sm:mt-[60px]">
         <div>
          <p className="text-[#101928] text-rethink text-[12px] sm:text-[18px] text-[#101928]">Recent Tests and Results</p>
          <p className="text-[8px] sm:text-[12px] text-rethink text-[#667185]">View your performance and retake tests to sharpen your skills.</p>
@@ -23,7 +23,7 @@ export default function Section2() {
          </div>
         </div>
        </div>
-       <div className="mt-[50px] m-auto flex flex-wrap justify-between">
+       <div className="mt-[50px] m-auto hidden sm:flex flex-wrap justify-between">
          <Results subject="Mathematics" date="October 21, 2024" score="85%" />
          <Results subject="Mathematics" date="October 21, 2024" score="85%" />
          <Results subject="Mathematics" date="October 21, 2024" score="85%" />

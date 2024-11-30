@@ -16,7 +16,7 @@ export default function Section1() {
            <ColouredBox customStyle="bg-[#E3EFFCF5]" title="Manage Your Account" content="Update your profile, and customize your preferences." imageUrl="/images/Setting.svg"/>
         </div>
        </div>
-       <div className="mt-[20px] flex justify-between mt-[30px] sm:mt-[60px]">
+       <div className="mt-[20px] hidden sm:flex justify-between mt-[30px] sm:mt-[60px]">
        <div>
          <p className="text-[#101928] text-rethink text-[12px] sm:text-[18px] text-[#101928]">Choose a Subject</p>
          <p className="text-[8px] sm:text-[12px] text-rethink text-[#667185]">Select a subject and begin your test journey.</p>
