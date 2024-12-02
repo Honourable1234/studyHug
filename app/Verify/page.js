@@ -24,7 +24,7 @@ export default function VerifyPage() {
           const response = await axios.post(verifyEndpoint,data)
           console.log(response)
           if (response.data.message == "Email verified successfully" && response.data.status == "success") {
-            router.push("/")
+            router.push("/Dashboard")
           }
           
         } catch (error) {

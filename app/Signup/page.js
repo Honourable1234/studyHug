@@ -41,7 +41,7 @@ export default function SignupPage() {
       }
       const handleClick = async () => {
         startLoading();
-        await new Promise((resolve) => setTimeout(resolve, 7000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
         stopLoading();
       };
   return (
