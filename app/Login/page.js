@@ -3,9 +3,9 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import Link from 'next/link'
 import { useLoading } from "../Contexts/loading";
+import Header1 from '../Components/Header1';
 
-
-function LoginPage() {
+export default function LoginPage() {
     const {
         register,
         handleSubmit,
@@ -22,7 +22,9 @@ function LoginPage() {
         stopLoading();
       };
   return (
-    <div className="h-screen text-black bg-white pt-[70px] xs:pt-[100px]">
+   <div>
+     <Header1 />
+     <div className="h-screen text-black bg-white pt-[70px] xs:pt-[100px]">
       <form onSubmit={handleSubmit(onSubmit)} className="w-[90%] sm:w-[456px] h-[370px] xs:h-[394px] border border[#B9BEC7] rounded-[12px] m-auto p-[30px]" >
             <h2 className="text-[#121930] text-[18px] text-rethink text-center xs:text-[26px] ">Log In</h2>
             <p className="text-rethink text-[9px] text-center xs:text-[14px]">Your practice journey continues here</p>
@@ -61,7 +63,8 @@ function LoginPage() {
         <div className="text-center"><p className="text-[11px] mt-[20px]">Are you new here? <Link href="/Signup" onClick={handleFetch}> <span className="text-[#0059DE]">Create Account</span> </Link></p></div>
       </form>
     </div>
+   </div>
   )
 }
 
-export default LoginPage
+

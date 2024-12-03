@@ -1,11 +1,27 @@
+'use client'
 import React from 'react'
 import ColouredBox from './ColouredBox'
 import Image from 'next/image'
+import Header2 from './Header2'
+import { useEffect, useState } from "react";
+import { useLoading } from "../Contexts/loading";
+
 export default function Section1() {
+  const { startLoading, stopLoading } = useLoading();
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  useEffect(() => {
+    const firstName = localStorage.getItem("firstName");
+    const lastName = localStorage.getItem("lastName");
+    setFirstName(firstName);
+    setLastName(lastName);
+  }, []);
   return (
-    <div className=" bg-[#F7F9FC] pt-[15px] px-[10%]">
+    <div>
+      <Header2 />
+      <div className=" bg-[#F7F9FC] pt-[15px] px-[10%]">
        <p className="text-rethink text-[8px] sm:text-[11px] lg:text-[16px] text-black ">Welcome</p>
-       <p className="italic text-instrument text-[#001432] sm:text-[24px] lg:text-[48px]">Gbolahan Adekola</p>
+       <p className="italic text-instrument text-[#001432] sm:text-[24px] lg:text-[48px]">{firstName} {lastName}</p>
        <div className="bg-[#F9F9F9] border border-[#E4E7EC] rounded-[12px] shadow mt-[15px] p-[3%] max-w-[1010px]">
         <p className="text-[12px] sm:text-[14px] lg:text-[18px] text-rethink text-[#101928]">Ready, Set, Go</p>
         <p className="text-[#667185] text-[7px] sm:text-[10px] lg:text-[12px]">Everything you need is just a click away—let’s get started!</p>
@@ -29,6 +45,7 @@ export default function Section1() {
         </div>
        </div>
        </div>
+    </div>
     </div>
   )
 }

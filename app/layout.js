@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { LoadingProvider, useLoading } from "./Contexts/loading";
 import { ClipLoader } from "react-spinners";
-import Header from "./Components/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +27,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
         <GlobalSpinner />
         {children}
        </body>

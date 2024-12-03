@@ -1,9 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
 import Subject from '../Components/Subject'
+import Header3 from '../Components/Header3'
 export default function page() {
   return (
-    <div className="pb-[70px] bg-white text-rethink pt-[35px] px-[5%]">
+    <div>
+      <Header3 />
+      <div className="pb-[70px] bg-white text-rethink pt-[35px] px-[5%]">
       <h3 className="text-[14px] text-[#101928]">Subjects</h3>
       <p className="text-[10px] text-[#667185]">Choose a subject to start your test journey today.</p>
       <div className="border border-[#E4E7EC] shadow w-full rounded-t-[12px] h-[40px] rs:h-[60px] mt-[20px] px-[10px] items-center justify-between flex max-w-[1010px]">
@@ -26,6 +29,7 @@ export default function page() {
             <button className="w-[150px] h-[36px] rounded-[8px] border border-[#C3D0EC] text-[#475367] text-[14px]">See More Subjects</button>
           </div>
       </div>
+    </div>
     </div>
   )
 }

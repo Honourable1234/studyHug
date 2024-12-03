@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { useLoading } from "../Contexts/loading";
 import axios from 'axios';
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from 'react';
+import Header1 from '../Components/Header1';
 
 export default function SignupPage() {
      const { startLoading, stopLoading } = useLoading();
-     const {setUserEmail} = useLoading();
+     const {setUser} = useLoading();
      const API = process.env.NEXT_PUBLIC_API_END_POINT_REGISTER
      const router = useRouter();
      const {
@@ -20,9 +20,11 @@ export default function SignupPage() {
         startLoading();
         try {
           const response = await axios.post(API, data)
-          setUserEmail(
-            response.data.data.user.email 
+          setUser(
+            response.data.data.user
           )
+          localStorage.setItem("firstName", (response.data.data.user.firstName));
+          localStorage.setItem("lastName", (response.data.data.user.lastName));
           router.push('/Verify')
           stopLoading();
         } catch (error) {
@@ -45,7 +47,9 @@ export default function SignupPage() {
         stopLoading();
       };
   return (
-    <div className="h-screen text-black bg-white pt-[70px] xs:pt-[100px]">
+    <div>
+      <Header1 />
+      <div className="h-screen text-black bg-white pt-[70px] xs:pt-[100px]">
         <form onSubmit={handleSubmit(onSubmit)} className="w-[90%] sm:w-[456px] h-[500px] xs:h-[524px] border border[#B9BEC7] rounded-[12px] m-auto p-[30px]" >
             <h2 className="text-[#121930] text-[18px] text-rethink text-center xs:text-[26px] ">Sign Up</h2>
             <p className="text-rethink text-[9px] text-center xs:text-[14px]">Join thousands of students preparing smarter! Fill in the details below to create your account.</p>
@@ -108,6 +112,7 @@ export default function SignupPage() {
         <button type="submit" className="bg-[#0059DE] w-[200px] xs:w-full h-[35px] sm:h-[45px] rounded-[8px] mt-[25px] text-white">Sign Up</button>
         <div className="text-center"><p className="text-[11px] mt-[20px]">Already have an account? <Link href="/Login" onClick={handleClick}><span className="text-[#0059DE]">Log in</span></Link> </p></div>
       </form>
+    </div>
     </div>
   )
 }
